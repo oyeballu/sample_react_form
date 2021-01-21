@@ -10,9 +10,16 @@ const FormLib = ({ formFields, initialData, dropdownData }) => {
 
   const handleSubmit = () => {
     console.log("values:",values)
+
     const apiurl = "abcurl";
     try {
-      axios.post(apiurl, {}).then(
+      axios.post(apiurl, {
+        "userid": values.UserId,
+        "firstname": values.FirstName,
+        "lastname": values.LastName,
+        "experience": values.Experience,
+        "gender": values.Gender
+      }).then(
         function (response) {
           if (response != null && response != "")
             window.alert(response.data);
